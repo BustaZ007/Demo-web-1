@@ -14,7 +14,6 @@ public class PostsViewController {
     @Autowired
     PostService postsService;
 
-    @ResponseBody
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String list(Model model) {
         model.addAttribute("appName", "Мое супер приложение");
