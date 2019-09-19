@@ -1,36 +1,49 @@
 package com.example.demoweb.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Post {
-    private String text;
-    private Integer likes = 0;
-    private Date creationDate;
-    private Long id;
 
-    public Post(Long id, String text, Date creationDate) {
-        this.id = id;
-        this.text = text;
-        this.creationDate = creationDate;
-    }
+@Entity
+public class Post implements Serializable {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String text;
 
     public Long getId() {
         return id;
     }
 
-    public void setLikes(Integer likes) {
-        this.likes = likes;
+    public String getText() {
+        return text;
+    }
+
+    public int getLikes() {
+        return likes;
     }
 
     public Date getCreationDate() {
         return creationDate;
     }
 
-    public Integer getLikes() {
-        return likes;
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 
-    public String getText() {
-        return text;
+    private int likes;
+    private Date creationDate;
+
+    public Post() {
+    }
+
+    public Post(Long id, String text, Date creationDate) {
+        this.id = id;
+        this.text = text;
+        this.creationDate = creationDate;
     }
 }
