@@ -1,4 +1,4 @@
-package com.example.demoweb.Service;
+package com.example.demoweb.service;
 import com.example.demoweb.model.Post;
 import com.example.demoweb.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,7 @@ public class PostService {
 
     @Autowired
     PostRepository postRepository;
+
 
     public Iterable<Post> listAllPosts() {
         return postRepository.findAll();
